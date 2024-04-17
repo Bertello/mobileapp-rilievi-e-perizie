@@ -1,0 +1,14 @@
+// Aggiungi queste regole CSS nel tuo file SCSS (ad esempio home.page.scss)
+
+.image-container {
+    margin-bottom: 10px; // Spazio tra le immagini
+    margin-right: 30px;
+  }
+  
+  .image {
+
+    width:100px; // Larghezza massima
+    height: 50px; // Altezza automatica per mantenere l'aspect ratio
+    margin-top: 10px;
+  }
+  

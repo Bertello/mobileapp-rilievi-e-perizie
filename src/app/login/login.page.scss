@@ -1,139 +1,83 @@
+// Variabili per la scala di grigio/nero
+$gray-light: #333;
+$gray-dark: #222;
+$black: #000;
+
+// Stili per la pagina di login
 .login-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #78ffd765;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $gray-light;
 }
 
 .login-container {
-    text-align: center;
-    color: #f7f7f7;
-    border-radius: 10px;
-    padding: 20px;
-    background: #007991;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(347deg, #78ffd6 7%, #007991 100%);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(347deg, #78ffd6 7%, #007991 100%);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    box-shadow: 0px 0px 15px 0px #78ffd6;
+  width: 90%;
+  max-width: 400px;
+  padding: 40px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
 }
 
-.login-container h2 {
-    font-size: 2rem;
-    margin-bottom: 5px !important;
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.login-container span {
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 20px;
-    display: inline-block;
+.title-container {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
+.login-title {
+  color: $gray-dark;
+  font-size: 24px;
+}
 
 .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+  margin-bottom: 20px;
 }
 
-.form-group label {
-    display: block;
-    font-size: 1rem;
-    padding-left: 10px;
+.input-group {
+  display: flex;
+  align-items: center;
 }
 
-.search {
-    background-color: #f7f7f7;
-    display: flex;
-    align-items: center;
-    border-radius: 100svh;
-    justify-content: space-between;
+.input-icon {
+  font-size: 1.2em;
+  margin-right: 10px;
 }
 
-.search-group {
-    display: flex;
-    align-items: center;
-    padding-left: 0.6rem;
+.form-label {
+  font-weight: bold;
+  color: $gray-dark;
 }
 
-.search-group input {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: rgba(82, 82, 82, 0.7);
-    font-size: 1rem;
-    font-weight: 500;
-    margin-left: 0.2rem;
-    padding: 5px;
-}
-
-.search-group input::placeholder {
-    color: rgba(82, 82, 82, 0.7);
-}
-
-.search-group ion-icon {
-    color: rgba(82, 82, 82, 0.7);
-    font-size: 1.2rem;
-    font-weight: 600;
+.form-control {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid $gray-light;
 }
 
 .row-button {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    //gap:0.5rem;
-    width: 100%;
+  text-align: center;
 }
 
-.row-button button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #f7f7f7;
-    color: #007991;
-    font-weight: 600;
-    text-transform: capitalize;
-    width: calc(11ch + 20px);
+.btn-primary {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: $gray-dark;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.row-button-google {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-
-
-.google-login {
-    background-color: #f7f7f7;
-    color: #007991;
-    border-radius: 100svh;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    gap: 0.5rem;
-    font-weight: 600;
-}
-
-.google-image {
-    width: 20px;
-    height: 20px;
-}
-
-.google-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-button{
-    transition: all 0.2s ease;
-}
-button:hover{
-    transform: scale(1.1);
+.btn-primary:hover {
+  background-color: darken($gray-dark, 10%);
 }

@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Le mie perizie
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Le mie perizie</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card *ngFor="let perizia of this.servizigenerali.perizie">
+    <ion-card-header>
+      Perizia: {{ perizia.codperizia }}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="block" (click)="visualizzaDettagli(perizia.codperizia)">Visualizza dettagli</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="this.servizigenerali.nessunaperizia">
+    <ion-card-content>
+      <ion-text>
+        NON HAI EFFETTUATO ANCORA NESSUNA PERIZIA
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="this.servizigenerali.visualizzadettagli">
+    <ion-card-header>
+      Dettagli perizia {{ this.servizigenerali.periziaselezionata.codperizia }}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Codice Operatore</ion-label>
+        <ion-text>{{ this.servizigenerali.periziaselezionata.codoperatore }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data Perizia</ion-label>
+        <ion-text>{{ this.servizigenerali.periziaselezionata.dataperizia }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Ora Perizia</ion-label>
+        <ion-text>{{ this.servizigenerali.periziaselezionata.oraperizia}}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Coordinate</ion-label>
+        <ion-text>{{ this.servizigenerali.periziaselezionata.coordinate }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Descrizione</ion-label>
+        <ion-text>{{ this.servizigenerali.periziaselezionata.descrizione }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Immagini</ion-label>
+        <!-- Per ogni immagine, visualizziamo l'immagine e il commento 
+        <ion-item *ngFor="let image of this.servizigenerali.periziaselezionata.immagini">
+          <ion-img src="../../assets/{{image.img}}"></ion-img>
+          <ion-text>{{ image.commento }}</ion-text>
+        </ion-item>-->
+        <div *ngFor="let image of this.servizigenerali.periziaselezionata.immagini" class="image-container">
+          <ion-img src="../../assets/{{image.img}}" class="image"></ion-img>
+          <ion-text>{{ image.commento }}</ion-text>
+        </div>
+      </ion-item>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="chiudiDettagli()">Chiudi</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  
+</ion-content>
