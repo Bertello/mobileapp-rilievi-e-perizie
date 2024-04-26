@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ServizigeneraliService } from '../services/servizigenerali.service';
+import { PhotoService } from '../services/photo.service';
+
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +10,14 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(public servizigenerali: ServizigeneraliService, public photoservice:PhotoService) {}
 
+
+  salvaPerizia(){
+    this.servizigenerali.addnewperizia();
+  }
+
+  addPhotoToGallery(){
+    this.photoservice.addNewToGallery();
+  }
 }

@@ -1,17 +1,47 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Carica perizie</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <!-- Card per inserire una nuova perizia -->
+  <ion-card>
+    <ion-card-header>
+      Inserisci una nuova perizia
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Input per la descrizione della perizia -->
+      <ion-item>
+        <ion-label position="floating">Descrizione</ion-label>
+        <ion-textarea rows="6" placeholder="Inserisci la descrizione della perizia" [(ngModel)]="this.photoservice.descrizione" ></ion-textarea>
+        <!-- Input e button per caricare le immagini con commenti -->
+        <div class="photo-container" >
+          @if(photoservice.descrizione != ''){
+            <ion-button class="photo" (click)="addPhotoToGallery()"> Aggiungi Foto </ion-button>
+          }
+        </div>
+        <div class="list">
+          @if(photoservice.immagini.length > 0){
+            <ion-text> Foto caricate </ion-text>
+            @for(img of photoservice.immagini; track img.webviewPath; let i = $index){
+              <div class="photo-item-list">
+                <div class="picture" style="width: 8rem;height: 8rem;display: flex;">
+                  <img [src]="img.webviewPath" />
+                </div>
+                <div class="commento">
+                  <ion-input placeholder="inserisci un commento" [(ngModel)]="photoservice.commenti[i]"></ion-input>
+                </div>
+                <div class="remove">
+                  <ion-button (click)="photoservice.eliminafoto(img)">delete this photo</ion-button>
+                </div>
+              </div>
+            }
+          }
+        </div>
+      </ion-item>
+      <ion-button class="photo" (click)="photoservice.salvaPerizia()">Salva</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+

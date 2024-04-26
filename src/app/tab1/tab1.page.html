@@ -13,14 +13,17 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card *ngFor="let perizia of this.servizigenerali.perizie">
-    <ion-card-header>
-      Perizia: {{ perizia.codperizia }}
-    </ion-card-header>
-    <ion-card-content>
-      <ion-button expand="block" (click)="visualizzaDettagli(perizia.codperizia)">Visualizza dettagli</ion-button>
-    </ion-card-content>
-  </ion-card>
+  @if(!this.servizigenerali.visualizzadettagli && !this.servizigenerali.nessunaperizia)
+  {
+    <ion-card *ngFor="let perizia of this.servizigenerali.perizie">
+      <ion-card-header>
+        Perizia: {{ perizia.codperizia }}
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button expand="block" (click)="visualizzaDettagli(perizia.codperizia)">Visualizza dettagli</ion-button>
+      </ion-card-content>
+    </ion-card>
+  }
 
   <ion-card *ngIf="this.servizigenerali.nessunaperizia">
     <ion-card-content>
@@ -63,7 +66,7 @@
           <ion-text>{{ image.commento }}</ion-text>
         </ion-item>-->
         <div *ngFor="let image of this.servizigenerali.periziaselezionata.immagini" class="image-container">
-          <ion-img src="../../assets/{{image.img}}" class="image"></ion-img>
+          <ion-img src="{{image.img}}" class="image"></ion-img>
           <ion-text>{{ image.commento }}</ion-text>
         </div>
       </ion-item>

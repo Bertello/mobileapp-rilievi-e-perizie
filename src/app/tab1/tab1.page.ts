@@ -10,6 +10,12 @@ export class Tab1Page {
 
   constructor(public servizigenerali:ServizigeneraliService) {}
 
+  ionViewDidEnter() {
+    // Carica i dati e aggiorna l'interfaccia utente
+    this.servizigenerali.visualizzadettagli = false;
+    this.servizigenerali.getcodoperatore();
+  }
+
   visualizzaDettagli(codperizia:string){
     this.servizigenerali.codperiziaselezionata = codperizia;
     this.servizigenerali.visualizzadettagli = true;

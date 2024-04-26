@@ -12,3 +12,39 @@
     margin-top: 10px;
   }
   
+  /* Stile per l'icona nel titolo */
+ion-title ion-icon {
+  margin-right: 5px;
+}
+
+/* Stile per i card */
+ion-card {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile per i bottoni */
+ion-button {
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+/* Stile per i dettagli della perizia */
+ion-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+/* Stile per le immagini */
+.image-container {
+  margin-top: 10px;
+}
+
+.image {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
