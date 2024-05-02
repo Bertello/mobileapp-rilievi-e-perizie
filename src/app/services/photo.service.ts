@@ -79,7 +79,6 @@ export class PhotoService {
   
       return await this.convertBlobToBase64(blob) as string;
     }
-    
   }
   
   private convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
@@ -94,7 +93,7 @@ export class PhotoService {
   eliminafoto(foto:any){
     let i = this.immagini.indexOf(foto);
     if (i > -1) {
-      this.immagini.splice(i, 1);
+      this.base64img.splice(i, 1);
       this.immagini.splice(i, 1);
       this.commenti.splice(i, 1);
     }
@@ -143,7 +142,7 @@ export class PhotoService {
     .catch((err : any) => { this.libraryService.errore(err); });
     for(let i=0; i<this.base64img.length; i++)
     {
-      img = {"img":this.base64img[i], "commento":this.commenti[i]};
+      img = {"img": "data:image/jpeg;base64," + this.base64img[i], "commento":this.commenti[i]};
       console.log(codperizia, dettagli);
       await this.libraryService.inviaRichiesta('POST', '/api/salvaPeriziaOnCloudinary', {img,codperizia}).catch((err : any) => { this.libraryService.errore(err); });
     }
